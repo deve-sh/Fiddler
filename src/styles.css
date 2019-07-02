@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  max-width: 100%;
+  min-width: 100%;
+  line-height: 1.6;
+}
+
+.row {
+  margin: 0;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.zjrR8H1Zse9yjFvJ9j3DLTMAB {
+  /* This is the header. These components have such random names so no user messes with them by accident. */
+
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: left;
+}
+
+.editorpage {
+  background: #141414;
+}
+
+.editorpage #header {
+  background: #111111;
+  color: white;
+}
+
+.editorops {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+}
+
+.editorops #editor-app {
+  background: #181818;
+  color: black;
+  flex: 1;
+  min-height: 50vh;
+}
+
+.previewBox {
+  flex: 1;
+  padding: 8px;
+  overflow: auto;
+  background: #ffffff;
+  line-height: 1;
+  min-height: 95%;
+}
+
+/* Overwriting Bootstrap Styles */
+
+.previewBox table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+.previewBox tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.previewBox td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.previewBox tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.previewBox thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.previewBox tfoot {
+  display: table-footer-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.previewBox th {
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: center;
+}
+
+.previewBox table,
+.previewBox th,
+.previewBox td,
+.previewBox thead,
+.previewBox tr,
+.previewBox tfoot {
+  border: 0.1rem solid gray;
+  border-style: inset;
+  padding: 0.1rem;
+}
+
+.previewBox hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 2px;
+}
+
+.previewBox a:link {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.previewBox a:visited {
+  color: #551a8b;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.previewBox a:link:active,
+.previewBox a:visited:active {
+  color: #ee0000;
+}
+
+.editorops #editor-app .cm-s-monokai .CodeMirror-gutters {
+  background: #212121;
+}
+
+.editorops #editor-app .cm-s-monokai {
+  caret-color: teal;
+}
+
+.editorops #editor-app .cm-s-monokai {
+  height: 15rem;
+  margin-top: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.editorops #editor-app .editors {
+  background: #181818;
+  color: white;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+#editor-app .browserWindow {
+  border: 0.2rem solid #dfdfdf;
+  background: #fff;
+  min-height: 20rem;
+  overflow: auto;
+}
+
+#editor-app .browserWindow .top {
+  padding: 0.3rem;
+  background: #dfdfdf;
+}
+
+#editor-app .browserWindow .dot {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-left: 0.3rem;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#editor-app .col-md-6 {
+  padding: 0;
+}
+
+/* User Page */
+
+#userPage {
+  background: #141414 linear-gradient(125deg, #141414 65%, teal 45%);
+  min-height: 100vh;
+}
+
+#userPage #header {
+  background: transparent;
+  color: white;
+}
+
+#userPage .sandbox {
+  padding: 0.8rem;
+  border: 0.1rem solid #efefef;
+  border-radius: 0.25rem;
+  color: #000;
+  margin-bottom: 1rem;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#userPage .sandbox .sandboxid {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+#userPage .useroptions {
+  padding: 2rem 1rem;
+  background: transparent;
+  color: white;
+}
+
+#userPage .addmore {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  background: #0c78eb;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#userPage .created {
+  font-size: 1.05em;
+}
+
+/* Home Component */
+
+#home {
+  font-family: "Open Sans", "Lato";
+  line-height: 1.7;
+}
+
+#home #header {
+  color: #212121;
+  background: white;
+  font-size: 1.4em;
+  border-top: 0.4rem solid teal;
+}
+
+#home #header a {
+  color: black;
+}
+
+.resimage {
+  max-width: 90%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.bottomimg {
+  width: 100%;
+  height: auto;
+}
+
+#home .introheading {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#home .intro {
+  padding: 2rem 0rem;
+}
+
+#home #homeintro {
+  margin: 0;
+  padding: 2rem 0 6rem 0;
+}
+
+#home .continuation {
+  min-height: 10vh;
+  margin: 0;
+  background: #0158f8;
+  color: #ffffff;
+}
+
+#home footer {
+  background: #17262a;
+  color: white;
+}
+
+#home footer .footercontainer {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.descriptor {
+  padding: 3rem 2rem;
+}
+
+.imagecolumn {
+  padding: 2rem;
+}
+
+.btn-applink {
+  padding: 0.6rem;
+  background: transparent;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+}
+
+.btn-applink:hover {
+  background: white;
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .homeintroflex {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #home .intro {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .imagecolumn {
+    text-align: center;
+  }
+
+  .descriptor {
+    text-align: center;
+  }
+
+  .columnreverser {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (max-width: 573.5px) {
+  #userPage .sandbox .sandboxid {
+    font-size: 1.05em;
+  }
+}
