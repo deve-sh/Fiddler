@@ -3,6 +3,14 @@
 import React, { useState, useEffect } from "react";
 const Backbone = require("./communicator");
 
+const jsMounter = (isMounted = true, js = "") => {
+  if (isMounted === true) {
+    let componenttoMount = document.createElement("script");
+    componenttoMount.innerHTML = js;
+    document.getElementById("root").append(componenttoMount);
+  }
+};
+
 const FullPageApp = () => {
   // State Variables
   // Get the current sid or the sid from the URL first.
@@ -10,6 +18,8 @@ const FullPageApp = () => {
   let [pageToShow, pageUpdater] = useState(
     "Psst... Psst... Your Output shows here."
   );
+
+  let [mounted, mounter] = useState(false);
 
   const CodeGetter = () => {
     let sid = Backbone.getQueryP();
@@ -21,9 +31,10 @@ const FullPageApp = () => {
 
           let { html, css, js } = code;
 
-          const totalPage = `<style type='text/css'>${css.toString()}</style>${html.toString()}<script type='text/javascript'>${js.toString()}</script>`;
+          const totalPage = `<style type='text/css'>${css.toString()}</style>${html.toString()}`;
 
           pageUpdater(totalPage);
+          jsMounter(mounted, js);
         }
       } else {
         throw new Error("Invalid SID.");
@@ -36,8 +47,9 @@ const FullPageApp = () => {
   };
 
   useEffect(() => {
+    mounter(true);
     CodeGetter();
-  }, []);
+  });
 
   const DOMElement = (
     <div
