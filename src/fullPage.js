@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 const Backbone = require("./communicator");
+const DOMPurify = require('dompurify');
 
 const jsMounter = (isMounted = true, js = "") => {
   if (isMounted === true) {
@@ -54,7 +55,7 @@ const FullPageApp = () => {
   const DOMElement = (
     <div
       className="previewBox"
-      dangerouslySetInnerHTML={{ __html: pageToShow }}
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pageToShow,{FORCE_BODY: true}) }}
     />
   );
 
