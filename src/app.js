@@ -234,7 +234,7 @@ const App = () => {
                 />
                 <br />
                 <div className="jshandler btn btn-info" onClick={jsHandler}>
-                  Render JS
+                  Execute JavaScript
                 </div>
               </div>
             </div>
