@@ -13,18 +13,18 @@ import "./styles.css";
 
 import Home from "./home";
 import App from "./app";
-import fullPage from "./fullPage";
+import SandboxFullPage from "./fullPage";
 import UserPage from "./user";
 
 const Index = () => {
-  return (
-    <Router>
-      <Route path="/" exact component={Home} />
-      <Route path="/user" component={UserPage} />
-      <Route path="/app" component={App} />
-      <Route path="/fullpage" component={fullPage} />
-    </Router>
-  );
+	return (
+		<Router>
+			<Route path="/" exact component={Home} />
+			<Route path="/user" component={UserPage} />
+			<Route path="/app" component={App} />
+			<Route path="/sandbox/:sid" component={SandboxFullPage} />
+		</Router>
+	);
 };
 
 ReactDOM.render(<Index />, document.getElementById("root"));

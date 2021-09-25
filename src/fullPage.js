@@ -2,66 +2,67 @@
 
 import React, { useState, useEffect } from "react";
 const Backbone = require("./communicator");
-const DOMPurify = require('dompurify');
+const DOMPurify = require("dompurify");
 
 const jsMounter = (isMounted = true, js = "") => {
-  if (isMounted === true) {
-    let componenttoMount = document.createElement("script");
-    componenttoMount.innerHTML = js;
-    document.getElementById("root").append(componenttoMount);
-  }
+	if (isMounted === true) {
+		let componenttoMount = document.createElement("script");
+		componenttoMount.innerHTML = js;
+		document.getElementById("root").append(componenttoMount);
+	}
 };
 
-const FullPageApp = () => {
-  // State Variables
-  // Get the current sid or the sid from the URL first.
+const FullPageApp = (props) => {
+	// State Variables
+	// Get the current sid or the sid from the URL first.
 
-  let [pageToShow, pageUpdater] = useState(
-    "Psst... Psst... Your Output shows here."
-  );
+	let [pageToShow, pageUpdater] = useState(
+		"Psst... Psst... Your Output shows here."
+	);
 
-  let [mounted, mounter] = useState(false);
+	let [mounted, setMounted] = useState(false);
 
-  const CodeGetter = () => {
-    let sid = Backbone.getQueryP();
+	useEffect(() => {
+		setMounted(true);
 
-    if (sid) {
-      if (sid.length === 32) {
-        if (Backbone.validateSID(sid)) {
-          let code = Backbone.retreiveData(sid).code;
+		const CodeGetter = () => {
+			let sandboxId = props?.match?.params?.sid;
 
-          let { html, css, js } = code;
+			if (sandboxId) {
+				if (sandboxId.length === 32) {
+					if (Backbone.validateSID(sandboxId)) {
+						let code = Backbone.retreiveData(sandboxId).code;
 
-          const totalPage = `<style type='text/css'>${css.toString()}</style>${html.toString()}`;
+						let { html, css, js } = code;
 
-          pageUpdater(totalPage);
-          jsMounter(mounted, js);
-        }
-      } else {
-        throw new Error("Invalid SID.");
-      }
-    } else {
-      throw new Error(
-        "You need to pass a valid SID in the URL to view its full page version."
-      );
-    }
-  };
+						const totalPage = `<style type='text/css'>${css.toString()}</style>${html.toString()}`;
 
-  useEffect(() => {
-    mounter(true);
-    CodeGetter();
-  });
+						pageUpdater(totalPage);
+						jsMounter(mounted, js);
+					}
+				} else {
+					throw new Error("Invalid SID.");
+				}
+			} else {
+				throw new Error(
+					"You need to pass a valid SID in the URL to view its full page version."
+				);
+			}
+		};
 
-  const DOMElement = (
-    <div
-      className="previewBox"
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pageToShow,{FORCE_BODY: true}) }}
-    />
-  );
+		CodeGetter();
+	}, []);
 
-  return DOMElement;
+	const DOMElement = (
+		<div
+			className="previewBox"
+			dangerouslySetInnerHTML={{
+				__html: DOMPurify.sanitize(pageToShow, { FORCE_BODY: true }),
+			}}
+		/>
+	);
+
+	return DOMElement;
 };
 
 export default FullPageApp;
-
-// Tests not Passing! Still a lot of work to do here.
